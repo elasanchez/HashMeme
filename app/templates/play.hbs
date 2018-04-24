@@ -1,1 +1,10 @@
 <h1>Play</h1>
+
+<div class="form-horizontal form-group form-group-lg row">
+   <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4 textFieldGuess">
+     {{input type="text" value=guess class="form-control" placeholder="Type your guess!" autofocus="autofocus"}}
+   </div>
+   <div class="col-xs-4 col-sm-4 col-md-8 col-lg-8 submitButton">
+      <button class="btn btn-primary" disabled= {{isDisabled}} {{action 'sendGuess'}}>Submit</button>
+   </div>
+</div>
