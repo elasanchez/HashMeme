@@ -29,10 +29,9 @@
       </div>
 
       <div class="answerBox">
-        {{input type="text" value=guess class="form-control" placeholder="Type your guess!" autofocus="autofocus"}}
+        {{input type="text" value=guess class="form-control" placeholder="Type your guess!" rows=1 autofocus="autofocus"}}
         <div class="submitBtn">
-          <!-- {{action 'sendGuess'}} ADD this to button to call sendGuess function -->
-          <button class="btn btn-success" disabled= {{isDisabled}}>Submit</button>
+          <button class="btn btn-success" disabled= {{isDisabled}} {{action 'sendGuess'}}>Submit</button>
         </div>
       </div>
     </div>
@@ -41,6 +40,9 @@
       <div class="well">
         <div class="incorrect">
           <p>Eat</p>
+          {{#if guessIncorrect}}
+            {{guessIncorrect}}
+          {{/if}}
         </div>
       </div>
     </div>
