@@ -1,9 +1,5 @@
 @import "bootstrap";
 
-#main-navbar {
-  margin: auto;
-}
-
 body {
   padding-top: 20px;
   padding-left: 0px;
@@ -11,84 +7,97 @@ body {
 
 html, body{
   height: 100%;
+  overflow: hidden;
 }
 
 p {
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
   height: 658px;
   /* height: 100%; */
-}
 
-.sidenav {
-  padding-top: 40px;
-  background-color: #f1f1f1;
-  height: 100%;
-}
+  .col-sm-2.sidenav {
+    padding-top: 40px;
+    background-color: #f1f1f1;
+    height: 100%;
 
-.well {
-  background-color: white !important;
-  margin-bottom: 0px !important;
-  height: 80%;
-}
+    .well {
+      background-color: white !important;
+      margin-bottom: 0px !important;
+      height: 80%;
 
-.img {
-  display: flex;
-  justify-content: center;
-  max-height: 100%;
-  max-width: 100%;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 20px;
-}
+      .correct {
+        height: 100%;
+        color: green;
+      }
 
-.answerBox {
-  padding-top: 30px;
-  margin-left: 20%;
-  margin-right: 20%;
-}
+      .incorrect {
+        height: 100;
+        color: red;
+      }
+    }
+  }
 
-.submitBtn {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
-}
+  .col-sm-8.text-left {
+    // background-color: #F08080;
 
-.time {
-  display: flex;
-  justify-content: center;
-  font-family:sans-serif;
-  font-size: 40px;
-  padding-top: 10px;
-}
-.time p {
-  margin: 0px !important;
-}
+    .time {
+      display: flex;
+      justify-content: center;
+      font-family:sans-serif;
+      font-size: 40px;
+      padding-top: 10px;
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  font-size: 36px;
-}
+      p {
+        margin: 0px !important;
+      }
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      font-size: 36px;
+    }
+    .imgSection {
+      display: flex;
+      justify-content: center;
+      .imgContent {
+        display: flex;
+        justify-content: center;
+        height: 275px;
+        width: 498px;
+        padding-bottom: 20px;
 
-.score-hint-info {
-  padding-left: 160px;
-  font-size: 15px;
-}
+        .gifImage {
+          width: 100%;
+        }
+      }
+    }
+    .score-hint-info {
+      display: flex;
+      justify-content: center;
+      font-size: 15px;
 
-.score-hint-info p {
-  margin: 0px;
-}
+      p {
+        margin: 0px;
+      }
 
-.correct {
-  height: 100%;
-  color: green;
-}
+      .score-info {
+        font-size: 25px;
+        padding-bottom: 12px;
+      }
+    }
+    .answerBox {
+      padding-top: 30px;
+      margin-left: 20%;
+      margin-right: 20%;
+    }
 
-.incorrect {
-  height: 100;
-  color: red;
+    .submitBtn {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 20px;
+    }
+  }
 }

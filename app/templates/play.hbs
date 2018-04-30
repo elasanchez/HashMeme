@@ -16,16 +16,22 @@
       <div class="countdown">
         <p>1:00</p>
       </div>
-      <!-- <div class="image-info"> -->
-      <div class="img">
-        <img src="https://media1.giphy.com/media/8MObiTsZrFlTi/giphy.gif">
+      <div class="imgSection">
+        <div class="imgContent">
+          {{#each model as |image|}}
+            <img class= "gifImage" src={{image.url}}>
+          {{/each}}
+        </div>
       </div>
-      <!-- </div> -->
       <div class="score-hint-info">
-        <p>Hint: There are 5 hashtags!</p>
+        <div class="score-info">
+          <p>My Score: 2</p>
+        </div>
       </div>
       <div class="score-hint-info">
-        <p>My Score: 2</p>
+        {{#each model as |tag|}}
+          <p>Hint: Find {{tag.tagCount}} hashtag(s)!</p>
+        {{/each}}
       </div>
 
       <div class="answerBox">
