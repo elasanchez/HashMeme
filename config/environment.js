@@ -31,7 +31,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    // YASH: maybe include a second script-src, connect-src, etc for database. This is for websocket
+    contentSecurityPolicy: {
+             'default-src': "'none'",
+             'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
+             'font-src': "'self'",
+             'connect-src': "'self' ws://localhost:7000 localhost:7000",
+             'img-src': "'self'",
+             'report-uri':"'localhost'",
+             'style-src': "'self' 'unsafe-inline'",
+             'frame-src': "'none'"
+           }
   };
 
   if (environment === 'development') {
