@@ -1,0 +1,24 @@
+<h2>Reviews</h2>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 5px;
+}
+</style>
+
+
+<table style="width:70%">
+  <tr>
+  <th>Name</th>
+  <th>Message</th>
+</tr>
+{{#each model as |message|}}
+<tr>
+<td>{{message.name}}</td>
+<td>{{message.message}}</td>
+</tr>
+{{/each}}
+</table>

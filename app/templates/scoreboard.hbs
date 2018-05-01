@@ -1,1 +1,23 @@
-<h1>Scoreboard</h1>
+<!-- This is ready template for scoreboard page
+We'll complete it once username popup is ready -->
+
+  <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+</style>
+<table style="width:70%">
+  <tr>
+  <th>Username</th>
+  <th>Score</th>
+</tr>
+{{#each model as |post|}}
+<tr>
+<td>{{post.title}}</td>
+<td>{{post.body}}</td>
+</tr>
+{{/each}}
+</table>

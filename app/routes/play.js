@@ -21,15 +21,13 @@ function getImage () {
         tagList.push(firstTag[firstTag.length-1]);
 
         for (var i=1; i < numTag.length-2; i++) {
-
           tagList.push(numTag[i]);
         }
-        //remove duplicate tags
-        var tags = Array.from(new Set(tagList));
+
         var returnObj = {
           url:imgURL,
-          tagList: tags,
-          tagCount: tags.length
+          tagList: tagList,
+          tagCount: tagList.length
         }
         resolve(returnObj);
       });
