@@ -2,10 +2,21 @@
 
 module.exports = function(environment) {
   let ENV = {
+    torii: {
+      sessionServiceName: 'session'
+    },
     modulePrefix: 'hash-meme',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: "AIzaSyCHx6Pbxxp4-kfxfK8oeBpnUM1LOX4p55o",
+      authDomain: "hash-meme.firebaseapp.com",
+      databaseURL: "https://hash-meme.firebaseio.com",
+      projectId: "hash-meme",
+      storageBucket: "hash-meme.appspot.com",
+      messagingSenderId: "915932022711"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

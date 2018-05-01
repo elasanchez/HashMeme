@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('play');
   this.route('contacts');
   this.route('scoreboard');
+  this.route('posts');
 });
 
 export default Router;
