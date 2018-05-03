@@ -45,7 +45,7 @@ export default Component.extend({
 
     $message.append($('<span>', {
       'class': 'message-message',
-      text: this.get('message')
+      text: event.data
     }));
 
     $messageRow.append($message);
