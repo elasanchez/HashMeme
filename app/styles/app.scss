@@ -101,3 +101,33 @@ p {
     }
   }
 }
+
+.name-email-div {
+  label {
+    font-size: 18px;
+  }
+  .form-control {
+    height: 26px !important;
+  }
+}
+
+.msg-div {
+  label {
+    font-size: 18px;
+  }
+}
+
+.msg-btn {
+  padding-top: 15px;
+}
+
+table {
+  width:100%;
+
+  th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+  }
+}
