@@ -1,11 +1,12 @@
-<div class="jumbotron text-left">
-  <div data-chat="message-list">
-
+<body class="container chat-wrapper">
+  <div class="panel panel-default chat-messages">
+    <ul class="panel-body chat-message-list" data-chat="message-list"></ul>
   </div>
-</div>
-<div class="">
-  <!-- <h3>Chat</h3> {{textarea value=messageIncoming}} -->
-  <!-- <h3>Input here</h3> -->
-  {{input value=message autofocus="autofucus" }}
-  <button {{action 'sendButtonPressed'}}>Send</button>
-</div>
+
+  <div class="container">
+    <form {{action "doSomething" on="submit"}}>
+      {{input value=message autofocus="autofucus" }}
+      <button {{action 'sendButtonPressed'}}>Send</button>
+    </form>
+  </div>
+</body>
