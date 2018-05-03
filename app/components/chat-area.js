@@ -27,29 +27,30 @@ export default Component.extend({
   myMessageHandler: function(event) {
 
     console.log('Message: ' + event.data);
-    var msg = this.get('messageIncoming');
-    msg += event.data;
-    this.set('messageIncoming', msg);
-    // this.$list = $('[data-chat="message-list"]');
-    //
-    // let $messageRow = $('<ul>', {
-    //   'class': 'message-row'
-    // });
-    //
-    // let $message = $('<p>');
-    // $message.append($('<span>', {
-    //   'class': 'message-username',
-    //   text: this.get('username')
-    // }));
-    //
-    // $message.append($('<span>', {
-    //   'class': 'message-message',
-    //   text: this.get('message')
-    // }));
-    //
-    // $messageRow.append($message);
-    // this.$list.append($messageRow);
-    // $messageRow.get(0).scrollIntoView();
+    // var msg = this.get('messageIncoming');
+    // msg += event.data;
+    // this.set('messageIncoming', msg);
+
+    this.$list = $('[data-chat="message-list"]');
+
+    let $messageRow = $('<ul>', {
+      'class': 'message-row'
+    });
+
+    let $message = $('<p>');
+    $message.append($('<span>', {
+      'class': 'message-username',
+      text: this.get('username')
+    }));
+
+    $message.append($('<span>', {
+      'class': 'message-message',
+      text: this.get('message')
+    }));
+
+    $messageRow.append($message);
+    this.$list.append($messageRow);
+    $messageRow.get(0).scrollIntoView();
   },
 
   actions: {
