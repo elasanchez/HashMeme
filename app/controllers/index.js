@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 
 
 export default Controller.extend({
+
   actions: {
     loadbox: function() {
       var newUser = prompt("Please enter your name:");
