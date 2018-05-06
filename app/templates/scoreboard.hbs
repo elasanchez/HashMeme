@@ -1,15 +1,18 @@
 <!-- This is ready template for scoreboard page
 We'll complete it once username popup is ready -->
 
+
+<h2>Scoreboard</h2>
+
 <table>
   <tr>
   <th>Username</th>
   <th>Score</th>
 </tr>
-{{#each model as |post|}}
+{{#each model as |user|}}
 <tr>
-<td>{{post.title}}</td>
-<td>{{post.body}}</td>
+<td>{{user.username}}</td>
+<td>{{user.score}}</td>
 </tr>
 {{/each}}
 </table>
