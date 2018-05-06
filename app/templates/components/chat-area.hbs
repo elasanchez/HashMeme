@@ -1,0 +1,12 @@
+<body class="container chat-wrapper">
+  <div class="panel panel-default chat-messages">
+    <ul class="panel-body chat-message-list" data-chat="message-list"></ul>
+  </div>
+
+  <div class="container">
+    <form {{action "doSomething" on="submit"}}>
+      {{input value=message autofocus="autofucus" }}
+      <button {{action 'sendButtonPressed'}}>Send</button>
+    </form>
+  </div>
+</body>

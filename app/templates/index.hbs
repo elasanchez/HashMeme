@@ -3,8 +3,7 @@
   <div class="form-horizontal form-group form-group-lg row">
     <!--  col-xs-offset-1 col-md-offset-2 col-sm-6 col-md-5-->
     <div class=" row-xs-10 col-xs-10  col-sm-offset-1 col-xs-offset-1 ">
-
-      <!-- {{action 'sendMessage'}} TO-LINK-FUNCTION-->
+      <body onload={{action 'loadbox'}}>
         {{#link-to 'tutorial'}}
           <button class="btn btn-primary btn-block" name="tutorial-button">Tutorial</button>
         {{/link-to}}
@@ -12,11 +11,9 @@
           {{#link-to 'play'}}
             <button class="btn btn-primary btn-block" name="play-button">Play</button>
           {{/link-to}}
+
+</body>
     </div>
   </div>
-  <!-- {{#if contactResponseMessage}}
-  <div class="alert alert-success">
-    {{contactResponseMessage}}
-  </div>
-{{/if}} -->
 </div>
+{{chat-area}}

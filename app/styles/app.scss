@@ -14,6 +14,10 @@ p {
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.jumbotron {
+  padding-top: 20px;
+}
+
 .row.content {
   height: 658px;
   /* height: 100%; */
@@ -100,4 +104,67 @@ p {
       padding-top: 20px;
     }
   }
+}
+
+.name-email-div {
+  label {
+    font-size: 18px;
+  }
+  .form-control {
+    height: 26px !important;
+  }
+}
+
+.msg-div {
+  label {
+    font-size: 18px;
+  }
+}
+
+.msg-btn {
+  padding-top: 15px;
+}
+
+table {
+  width:100%;
+
+  th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+  }
+}
+
+.tut-title {
+  display: flex;
+  justify-content: center;
+}
+
+.instructions {
+  padding-top: 10px;
+  p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.ready-msg {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  p {
+    font-size: 24px;
+  }
+}
+
+.play-btn {
+  display: flex;
+  justify-content: center;
+  .btn {
+    padding: 6px 38px;
+  }
+  // .btn-primary {
+  //   background-color: #264a54;
+  // }
 }
