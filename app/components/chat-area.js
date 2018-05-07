@@ -22,6 +22,8 @@ export default Component.extend({
 
   myOpenHandler: function(event) {
     console.log('On open event has been called: ' + event);
+
+
   },
 
   myMessageHandler: function(event) {
