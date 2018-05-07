@@ -6,12 +6,12 @@ import {
 
 var correctGuess = [];
 var incorrectGuess = [];
+var score = 0;
 
 export default Controller.extend({
 
       guess: '',
-      incorretGuess: '',
-      correctGuess: '',
+      done: '',
 
       isValidGuessLen: gte('guess.length', 1),
       isDisabled: not('isValidGuessLen'),
@@ -22,19 +22,18 @@ export default Controller.extend({
         sendGuess() {
           // alert(`Your Guess: ${this.get('guess')}`);
 
-          // var correctGuess = [];
-          // var incorrectGuess = [];
           var list = this.get('model')[0].tagList;
-
-          // console.log("uig", list);
 
           /**Correct**/
           console.log(list.includes(this.get('guess')));
           if(list.includes(this.get('guess')) == true) {
             correctGuess.push(this.get('guess'));
+            score = score+1;
             this.set('correctGuess', correctGuess);
-            // correctGuess = this.get('guess');
-            console.log(correctGuess);
+            this.set('score', score);
+            if(correctGuess == list.length) {
+              this.set('done', true);
+            }
           }
 
           /**Incorrect**/
@@ -43,12 +42,8 @@ export default Controller.extend({
             incorrectGuess.push(this.get('guess'));
             this.set('incorrectGuess', incorrectGuess);
             console.log(incorrectGuess);
-            // for(var i = 0; i < incorrectGuess.length; i++) {
-            //   this.set('incorrectGuess', incorrectGuess);
-            // }
           }
           this.set('guess', '');
-          // console.log(incorrectGuess)
         }
       }
     });
