@@ -7,15 +7,16 @@ body {
 
 html, body{
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 p {
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.jumbotron {
-  padding-top: 20px;
+.container {
+  overflow:auto;
+  height:100%;
 }
 
 .row.content {
