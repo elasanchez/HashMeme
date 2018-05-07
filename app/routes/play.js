@@ -24,12 +24,15 @@ function getImage () {
 
           tagList.push(numTag[i]);
         }
+
+        var currDate = Date.now() + 60000;
         //remove duplicate tags
         var tags = Array.from(new Set(tagList));
         var returnObj = {
           url:imgURL,
           tagList: tags,
-          tagCount: tags.length
+          tagCount: tags.length,
+          startTime: currDate
         }
         resolve(returnObj);
       });

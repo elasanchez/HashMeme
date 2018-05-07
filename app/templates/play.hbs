@@ -20,7 +20,9 @@
         <p>TIME REMAINING:</p>
       </div>
       <div class="countdown">
-        <p>1:00</p>
+        {{#each model as |timer|}}
+          <p>{{countdown-string startDate=timer.startTime}}</p>
+        {{/each}}
       </div>
       <div class="imgSection">
         <div class="imgContent">

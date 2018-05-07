@@ -1,22 +1,21 @@
 @import "bootstrap";
 
 body {
-  padding-top: 20px;
+  // padding-top: 20px;
   padding-left: 0px;
 }
 
 html, body{
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 p {
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.container {
-  overflow:auto;
-  height:100%;
+.jumbotron {
+  padding-top: 20px;
 }
 
 .row.content {

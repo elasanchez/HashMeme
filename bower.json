@@ -1,0 +1,6 @@
+{
+  "name": "hash-meme",
+  "dependencies": {
+    "countdownjs": "^2.6.0"
+  }
+}
