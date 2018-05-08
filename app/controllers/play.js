@@ -4,8 +4,8 @@ import {
   not
 } from '@ember/object/computed';
 
-var correctGuess = [];
-var incorrectGuess = [];
+let correctGuess = [];
+let incorrectGuess = [];
 var score = 0;
 
 export default Controller.extend({
@@ -20,28 +20,28 @@ export default Controller.extend({
         //checks whether guess is correct/incorrect
 
         sendGuess() {
-          // alert(`Your Guess: ${this.get('guess')}`);
 
           var list = this.get('model')[0].tagList;
 
           /**Correct**/
-          console.log(list.includes(this.get('guess')));
+          console.log("this is guess: ", this.get('guess'));
           if(list.includes(this.get('guess')) == true) {
-            correctGuess.push(this.get('guess'));
+            correctGuess.addObject(this.get('guess'));
+            console.log("CORRECT", this.get('correctGuess'));
             score = score+1;
             this.set('correctGuess', correctGuess);
+
             this.set('score', score);
-            if(correctGuess == list.length) {
+            if(correctGuess.length == list.length) {
               this.set('done', true);
             }
           }
 
           /**Incorrect**/
           else {
-            // console.log("FALSE THAT");
-            incorrectGuess.push(this.get('guess'));
+            incorrectGuess.addObject(this.get('guess'));
             this.set('incorrectGuess', incorrectGuess);
-            console.log(incorrectGuess);
+            console.log("INCORRECT!", this.get('incorrectGuess'));
           }
           this.set('guess', '');
         }

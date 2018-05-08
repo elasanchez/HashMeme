@@ -5,13 +5,10 @@
       <div class="well">
         <div class="correct">
           {{#if correctGuess}}
-            {{#each correctGuess}}
-              <!-- <p>Test</p> -->
-              <p>{{correctGuess}}</p>
+            {{#each correctGuess as |correct|}}
+              <p>{{correct}}</p>
             {{/each}}
           {{/if}}
-          <!-- <p>Patrick</p>
-          <p>Food</p> -->
         </div>
       </div>
     </div>
@@ -57,12 +54,10 @@
     <div class="well">
       <div class="incorrect">
         {{#if incorrectGuess}}
-          {{#each incorrectGuess}}
-            <p>{{incorrectGuess}}</p>
-            <br>
+          {{#each incorrectGuess as |incorrect|}}
+            <p>{{incorrect}}</p>
           {{/each}}
         {{/if}}
-        <!-- <p>{{incorrectGuess}}</p> -->
       </div>
     </div>
   </div>
