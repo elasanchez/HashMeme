@@ -34,6 +34,7 @@ export default Controller.extend({
             this.set('score', score);
             if(correctGuess.length == list.length) {
               this.set('done', true);
+              window.location.reload();
             }
           }
 
