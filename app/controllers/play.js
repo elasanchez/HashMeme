@@ -1,50 +1,131 @@
 import Controller from '@ember/controller';
+
 import {
   gte,
   not
 } from '@ember/object/computed';
+import {
+  UserStore
+} from './storage';
+
+let roundStore = new UserStore('x-hashmeme/r');
+let scoreStore = new UserStore('x-hashmeme/s');
+let userStore = new UserStore('x-hashmeme/u');
+
+let MAX_ROUNDS = 3;
+let GAME_TIME_MS = 59800;
+// get saved score
+var score = scoreStore.get();
+if (!score) {
+  score = 0;
+  scoreStore.set(score);
+}
+// get saved round
+var round = roundStore.get()
+if (!round) {
+  round = 0;
+  roundStore.set(round);
+}
+
+// get saved round
+var username = userStore.get()
+if (!username) {
+  username = prompt("Please enter your name:");
+  userStore.set(username);
+}
 
 let correctGuess = [];
 let incorrectGuess = [];
-var score = 0;
 
 export default Controller.extend({
 
-      guess: '',
-      done: '',
+  guess: '',
+  isValidGuessLen: gte('guess.length', 1),
+  isDisabled: not('isValidGuessLen'),
 
-      isValidGuessLen: gte('guess.length', 1),
-      isDisabled: not('isValidGuessLen'),
+  actions: {
+    //checks whether guess is correct/incorrect
+    sendGuess() {
 
-      actions: {
-        //checks whether guess is correct/incorrect
+      var list = this.get('model')[0].tagList;
 
-        sendGuess() {
+      /**Correct**/
+      console.log("this is guess: ", this.get('guess'));
+      if (list.includes(this.get('guess')) == true) {
+        correctGuess.addObject(this.get('guess'));
+        // console.log("CORRECT", this.get('correctGuess'));
+        score = parseInt(score) + 1;
 
-          var list = this.get('model')[0].tagList;
+        // Update UI
+        this.set('correctGuess', correctGuess);
+        this.set('score', score);
 
-          /**Correct**/
-          console.log("this is guess: ", this.get('guess'));
-          if(list.includes(this.get('guess')) == true) {
-            correctGuess.addObject(this.get('guess'));
-            console.log("CORRECT", this.get('correctGuess'));
-            score = score+1;
-            this.set('correctGuess', correctGuess);
+        //save score to local storage
+        scoreStore.set(score);
 
-            this.set('score', score);
-            if(correctGuess.length == list.length) {
-              this.set('done', true);
+        //check if all tags have been guessed
+        if (correctGuess.length == list.length) {
+          // increment round
+          if (round < MAX_ROUNDS) {
+            round = parseInt(round) + 1;
+            roundStore.set(round);
+
+            if (round == MAX_ROUNDS) {
+
+              // save score and name to database
+              var newUser = this.store.createRecord('user', {
+                username: username,
+                score: score
+              });
+              newUser.save().then(function(){
+                 window.location.reload();
+              });
+              //swtich to scoreboard
+            }
+            else {
+                //refresh page
               window.location.reload();
             }
           }
-
-          /**Incorrect**/
-          else {
-            incorrectGuess.addObject(this.get('guess'));
-            this.set('incorrectGuess', incorrectGuess);
-            console.log("INCORRECT!", this.get('incorrectGuess'));
-          }
-          this.set('guess', '');
         }
       }
-    });
+      /**Incorrect**/
+      else {
+        incorrectGuess.addObject(this.get('guess'));
+        this.set('incorrectGuess', incorrectGuess);
+        // console.log("INCORRECT!", this.get('incorrectGuess'));
+      }
+      //clear text box
+      this.set('guess', '');
+    }
+  }
+});
+
+// run function every 59.8 seconds
+setInterval(gameTimer, GAME_TIME_MS);
+
+function gameTimer() {
+
+  if (round < MAX_ROUNDS) {
+    round = parseInt(round) + 1;
+    roundStore.set(round);
+    if (round == MAX_ROUNDS) {
+
+      // save score and name to database
+      var newUser = this.store.createRecord('user', {
+        username: username,
+        score: score
+      });
+      newUser.save().then(function(){
+         window.location.reload();
+      });
+
+      //swtich to scoreboard
+
+    }
+    else {
+      window.location.reload();
+    }
+
+  }
+}

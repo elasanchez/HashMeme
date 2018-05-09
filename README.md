@@ -17,12 +17,9 @@ You will need the following things properly installed on your computer.
 * `git clone <repository-url>` this repository
 * `cd hash-meme`
 * `npm install`
+* `bower install`
 
 ## Running / Development
-
-To run chat functionality
-cd to /Web-socket-server
-* `node websocket-server.js`
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
