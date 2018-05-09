@@ -22,7 +22,7 @@ installing component-test
       <ul class="nav navbar-nav">
         {{#link-to 'index' tagName="li" }}<a href="">Home</a>{{/link-to}}
         {{#link-to 'tutorial' tagName="li" }}<a href="">Tutorial</a>{{/link-to}}
-        {{#link-to 'play' tagName="li" }}<a href="">Play</a>{{/link-to}}
+        {{#link-to 'play' tagName="li" }}<a onclick={{action 'loadbox1'}} href="" >Play</a>{{/link-to}}
         {{#link-to 'scoreboard' tagName="li" }}<a href="">Scoreboard</a>{{/link-to}}
         {{#link-to 'contacts' tagName="li" }}<a href="">Review Us</a>{{/link-to}}
         {{#link-to 'posts' tagName="li" }}<a href="">Reviews</a>{{/link-to}}
