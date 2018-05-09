@@ -1,15 +1,11 @@
-<!-- This is ready template for scoreboard page
-We'll complete it once username popup is ready -->
-
-
 <h2>Scoreboard</h2>
-
 <table>
   <tr>
   <th>Username</th>
   <th>Score</th>
 </tr>
-{{#each model as |user|}}
+<!-- scoreboard controller sorts the model by score -->
+{{#each sortedScores as |user|}}
 <tr>
 <td>{{user.username}}</td>
 <td>{{user.score}}</td>
