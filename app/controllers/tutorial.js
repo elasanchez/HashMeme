@@ -1,9 +1,9 @@
-import Component from '@ember/component';
+import Controller from '@ember/controller';
 
-export default Component.extend({
+export default Controller.extend({
 
   actions: {
-    loadbox1() {
+    loadbox: function() {
       var newUser = prompt("Please enter your name:");
       if (newUser == null || newUser == "") {
         newUser = prompt("Please enter your name:");

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('scoreboard');
   this.route('posts');
   this.route('user');
+  this.route('nav-bar');
 });
 
 export default Router;
