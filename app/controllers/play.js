@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-
+import {later } from '@ember/runloop';
 import {
   gte,
   not
@@ -21,14 +21,14 @@ if (!score) {
   scoreStore.set(score);
 }
 // get saved round
-var round = roundStore.get()
+var round = roundStore.get();
 if (!round) {
   round = 0;
   roundStore.set(round);
 }
 
-// get saved round
-var username = userStore.get()
+// get saved name
+var username = userStore.get();
 if (!username) {
   username = prompt("Please enter your name:");
   userStore.set(username);
@@ -43,7 +43,45 @@ export default Controller.extend({
   isValidGuessLen: gte('guess.length', 1),
   isDisabled: not('isValidGuessLen'),
 
+  // acts as setInterval which reset every set time interval
+  init() {
+      this._super(...arguments);
+
+      if(score) {
+        this.set('score', score);
+      }
+
+        later(this, function() {
+          if (round < MAX_ROUNDS) {
+            round = parseInt(round) + 1;
+            roundStore.set(round);
+
+            // save score and name to database
+            if (round == MAX_ROUNDS) {
+              // score = score.toString();
+              // save score and name to database
+              var record = this.store.createRecord('user', {
+                username: username,
+                score: score
+              });
+              record.save().then(function() {
+                //clear session storage
+                scoreStore.set(0);
+                roundStore.set(0);
+                window.location.reload();
+                //swtich to scoreboard
+              });
+
+            } else {
+              //refresh page
+              window.location.reload();
+            }
+
+          }
+      }, GAME_TIME_MS);
+  },
   actions: {
+
     //checks whether guess is correct/incorrect
     sendGuess() {
 
@@ -71,19 +109,22 @@ export default Controller.extend({
             roundStore.set(round);
 
             if (round == MAX_ROUNDS) {
-
+              // score = score.toString();
               // save score and name to database
               var newUser = this.store.createRecord('user', {
                 username: username,
                 score: score
               });
-              newUser.save().then(function(){
-                 window.location.reload();
+              newUser.save().then(function() {
+                //clear session storage
+                scoreStore.set(0);
+                roundStore.set(0);
+                window.location.reload();
+                //swtich to scoreboard
               });
-              //swtich to scoreboard
-            }
-            else {
-                //refresh page
+
+            } else {
+              //refresh page
               window.location.reload();
             }
           }
@@ -100,32 +141,3 @@ export default Controller.extend({
     }
   }
 });
-
-// run function every 59.8 seconds
-setInterval(gameTimer, GAME_TIME_MS);
-
-function gameTimer() {
-
-  if (round < MAX_ROUNDS) {
-    round = parseInt(round) + 1;
-    roundStore.set(round);
-    if (round == MAX_ROUNDS) {
-
-      // save score and name to database
-      var newUser = this.store.createRecord('user', {
-        username: username,
-        score: score
-      });
-      newUser.save().then(function(){
-         window.location.reload();
-      });
-
-      //swtich to scoreboard
-
-    }
-    else {
-      window.location.reload();
-    }
-
-  }
-}
