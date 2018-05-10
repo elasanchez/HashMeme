@@ -7,19 +7,28 @@ body {
 
 html, body{
   height: 100%;
-  overflow: hidden;
+  background-image: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1448438278000/photosp/8f81d5f8-6a98-445c-b1a1-759eb6d4fd20/stock-photo-indoors-square-blue-wood-sign-wooden-layered-four-branches-8f81d5f8-6a98-445c-b1a1-759eb6d4fd20.jpg");
+  // background-image: url("https://images.pexels.com/photos/958168/pexels-photo-958168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  // background-image: url("https://images.pexels.com/photos/18174/reflection-pad-gaming-gamepad.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  // overflow: hidden;
 }
 
 p {
-  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  // font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  // font-family: Courier, Monaco, monospace;
+  // font-family: "Roboto", sans-serif;
 }
 
 .jumbotron {
   padding-top: 20px;
+  h1 {
+    padding-bottom: 10px;
+  }
 }
 
 .row.content {
   height: 658px;
+  background: white;
   /* height: 100%; */
 
   .col-sm-2.sidenav {
@@ -66,6 +75,10 @@ p {
         margin: 0px !important;
       }
     }
+    .timer-countdown {
+      // border: 10px solid #DC143C;
+      // background: #DC143C;
+    }
     .countdown {
       display: flex;
       justify-content: center;
@@ -74,6 +87,7 @@ p {
     .imgSection {
       display: flex;
       justify-content: center;
+      padding-top: 10px;
 
       .imgContent {
         display: flex;
@@ -136,9 +150,15 @@ p {
 table {
   width:100%;
 
+  thead {
+    background-color: #337ab7;
+    color: white;
+  }
+
   th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    font-size: 24px;
     text-align: center;
     padding: 5px;
   }

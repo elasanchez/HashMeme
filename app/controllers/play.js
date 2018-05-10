@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import {later } from '@ember/runloop';
 import {
-  gte,
+  match,
   not
 } from '@ember/object/computed';
 import {
@@ -11,9 +11,9 @@ import {
 let roundStore = new UserStore('x-hashmeme/r');
 let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
-
+let self;
 let MAX_ROUNDS = 3;
-let GAME_TIME_MS = 59800;
+let GAME_TIME_MS = 30000;
 // get saved score
 var score = scoreStore.get();
 if (!score) {
@@ -40,7 +40,7 @@ let incorrectGuess = [];
 export default Controller.extend({
 
   guess: '',
-  isValidGuessLen: gte('guess.length', 1),
+  isValidGuessLen: match('guess', /^[a-zA-Z0-9_]+$/),
   isDisabled: not('isValidGuessLen'),
 
   // acts as setInterval which reset every set time interval
@@ -68,6 +68,7 @@ export default Controller.extend({
                 //clear session storage
                 scoreStore.set(0);
                 roundStore.set(0);
+                // this.send('transition');
                 window.location.reload();
                 //swtich to scoreboard
               });
@@ -81,10 +82,13 @@ export default Controller.extend({
       }, GAME_TIME_MS);
   },
   actions: {
-
+    transition() {
+      this.transitionToRoute('scoreboard');
+    },
     //checks whether guess is correct/incorrect
     sendGuess() {
-
+      // this.send('transition');
+      // this.transitionToRoute('scoreboard');
       var list = this.get('model')[0].tagList;
 
       /**Correct**/
@@ -121,11 +125,14 @@ export default Controller.extend({
                 roundStore.set(0);
                 window.location.reload();
                 //swtich to scoreboard
+                this.transitionTo('scoreboard');
               });
 
             } else {
               //refresh page
-              window.location.reload();
+              this.transitionToRoute('scoreboard');
+                // window.location.reload();
+              // this.get('model').reload();
             }
           }
         }

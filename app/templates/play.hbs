@@ -13,16 +13,16 @@
       </div>
     </div>
     <div class="col-sm-8 text-left">
+      <div class="timer-countdown">
       <div class="time">
-
         <p>TIME REMAINING:</p>
-
       </div>
       <div class="countdown">
         {{#each model as |timer|}}
           <p>{{countdown-string startDate=timer.startTime}}</p>
         {{/each}}
       </div>
+    </div>
       <div class="imgSection">
         <div class="imgContent">
 

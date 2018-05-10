@@ -17,11 +17,13 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "bootstrap": "^4.1.1",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~3.1.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
+    "ember-cli-bootstrap-4": "^0.5.9",
     "ember-cli-bootstrap-sassy": "^0.5.8",
     "ember-cli-clock": "^2.1.1",
     "ember-cli-dependency-checker": "^2.0.0",
@@ -46,6 +48,7 @@
     "emberfire": "^2.0.10",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
+    "popper.js": "^1.14.3",
     "torii": "^0.10.1"
   },
   "engines": {
