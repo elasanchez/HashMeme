@@ -11,7 +11,6 @@ import {
 let roundStore = new UserStore('x-hashmeme/r');
 let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
-let self;
 let MAX_ROUNDS = 3;
 let GAME_TIME_MS = 30000;
 // get saved score
@@ -82,9 +81,6 @@ export default Controller.extend({
       }, GAME_TIME_MS);
   },
   actions: {
-    transition() {
-      this.transitionToRoute('scoreboard');
-    },
     //checks whether guess is correct/incorrect
     sendGuess() {
       // this.send('transition');
@@ -125,14 +121,13 @@ export default Controller.extend({
                 roundStore.set(0);
                 window.location.reload();
                 //swtich to scoreboard
-                this.transitionTo('scoreboard');
+                // this.transitionTo('scoreboard');
               });
 
             } else {
               //refresh page
-              this.transitionToRoute('scoreboard');
-                // window.location.reload();
-              // this.get('model').reload();
+              // this.transitionToRoute('scoreboard');
+              window.location.reload();
             }
           }
         }

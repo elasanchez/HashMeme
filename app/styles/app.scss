@@ -1,22 +1,12 @@
 @import "bootstrap";
 
 body {
-  // padding-top: 20px;
   padding-left: 0px;
 }
 
 html, body{
   height: 100%;
-  background-image: url("https://res.cloudinary.com/twenty20/private_images/t_watermark-criss-cross-10/v1448438278000/photosp/8f81d5f8-6a98-445c-b1a1-759eb6d4fd20/stock-photo-indoors-square-blue-wood-sign-wooden-layered-four-branches-8f81d5f8-6a98-445c-b1a1-759eb6d4fd20.jpg");
-  // background-image: url("https://images.pexels.com/photos/958168/pexels-photo-958168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  // background-image: url("https://images.pexels.com/photos/18174/reflection-pad-gaming-gamepad.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  // overflow: hidden;
-}
-
-p {
-  // font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  // font-family: Courier, Monaco, monospace;
-  // font-family: "Roboto", sans-serif;
+  background-color: #41969D;
 }
 
 .jumbotron {
@@ -29,7 +19,6 @@ p {
 .row.content {
   height: 658px;
   background: white;
-  /* height: 100%; */
 
   .col-sm-2.sidenav {
     padding-top: 40px;
