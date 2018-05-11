@@ -25,7 +25,7 @@ function getImage () {
           tagList.push(numTag[i]);
         }
 
-        var currDate = Date.now() + 30000;
+        var currDate = Date.now() + 60000;
         //remove duplicate tags
         var tags = Array.from(new Set(tagList));
         var returnObj = {

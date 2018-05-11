@@ -12,7 +12,7 @@ let roundStore = new UserStore('x-hashmeme/r');
 let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
 let MAX_ROUNDS = 3;
-let GAME_TIME_MS = 30000;
+let GAME_TIME_MS = 60000;
 // get saved score
 var score = scoreStore.get();
 if (!score) {
@@ -57,7 +57,6 @@ export default Controller.extend({
 
             // save score and name to database
             if (round == MAX_ROUNDS) {
-              // score = score.toString();
               // save score and name to database
               var record = this.store.createRecord('user', {
                 username: username,
@@ -67,10 +66,9 @@ export default Controller.extend({
                 //clear session storage
                 scoreStore.set(0);
                 roundStore.set(0);
-                // this.send('transition');
-                window.location.reload();
-                //swtich to scoreboard
               });
+              //switch to scoreboard
+              this.transitionToRoute('scoreboard');
 
             } else {
               //refresh page
@@ -83,8 +81,6 @@ export default Controller.extend({
   actions: {
     //checks whether guess is correct/incorrect
     sendGuess() {
-      // this.send('transition');
-      // this.transitionToRoute('scoreboard');
       var list = this.get('model')[0].tagList;
 
       /**Correct**/
@@ -119,14 +115,13 @@ export default Controller.extend({
                 //clear session storage
                 scoreStore.set(0);
                 roundStore.set(0);
-                window.location.reload();
-                //swtich to scoreboard
-                // this.transitionTo('scoreboard');
+                // window.location.reload();
               });
+              //switch to scoreboard
+              this.transitionToRoute('scoreboard');
 
             } else {
               //refresh page
-              // this.transitionToRoute('scoreboard');
               window.location.reload();
             }
           }
