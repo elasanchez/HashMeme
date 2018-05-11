@@ -1,5 +1,7 @@
 import Controller from '@ember/controller';
-import {later } from '@ember/runloop';
+import {
+  later
+} from '@ember/runloop';
 import {
   match,
   not
@@ -13,28 +15,6 @@ let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
 let MAX_ROUNDS = 3;
 let GAME_TIME_MS = 60000;
-// get saved score
-var score = scoreStore.get();
-if (!score) {
-  score = 0;
-  scoreStore.set(score);
-}
-// get saved round
-var round = roundStore.get();
-if (!round) {
-  round = 0;
-  roundStore.set(round);
-}
-
-// get saved name
-var username = userStore.get();
-if (!username) {
-  username = prompt("Please enter your name: \n* Name must contain a letter\n* Length must be less than 20 character");
-  // Name cannot be null, empty, or does not contain a letter, and name is less than 20 char
-  while( !username || username =='' || !(/[a-zA-Z]/.test(username)) || username.length < 1 || username.length > 20) {
-  username = prompt("Please enter your name: \n* Name must contain a letter\n* Length must be less than 20 character");}
-  userStore.set(username);
-}
 
 let correctGuess = [];
 let incorrectGuess = [];
@@ -47,39 +27,39 @@ export default Controller.extend({
 
   // acts as setInterval which reset every set time interval
   init() {
-      this._super(...arguments);
+    this._super(...arguments);
 
-      if(score) {
-        this.set('score', score);
+    if (score) {
+      this.set('score', score);
+    }
+
+    later(this, function() {
+      if (round < MAX_ROUNDS) {
+        round = parseInt(round) + 1;
+        roundStore.set(round);
+
+        // save score and name to database
+        if (round == MAX_ROUNDS) {
+          // save score and name to database
+          var record = this.store.createRecord('user', {
+            username: username,
+            score: score
+          });
+          record.save().then(function() {
+            //clear session storage
+            scoreStore.set(0);
+            roundStore.set(0);
+          });
+          //switch to scoreboard
+          this.transitionToRoute('scoreboard');
+
+        } else {
+          //refresh page
+          window.location.reload();
+        }
+
       }
-
-        later(this, function() {
-          if (round < MAX_ROUNDS) {
-            round = parseInt(round) + 1;
-            roundStore.set(round);
-
-            // save score and name to database
-            if (round == MAX_ROUNDS) {
-              // save score and name to database
-              var record = this.store.createRecord('user', {
-                username: username,
-                score: score
-              });
-              record.save().then(function() {
-                //clear session storage
-                scoreStore.set(0);
-                roundStore.set(0);
-              });
-              //switch to scoreboard
-              this.transitionToRoute('scoreboard');
-
-            } else {
-              //refresh page
-              window.location.reload();
-            }
-
-          }
-      }, GAME_TIME_MS);
+    }, GAME_TIME_MS);
   },
   actions: {
     //checks whether guess is correct/incorrect
@@ -141,3 +121,32 @@ export default Controller.extend({
     }
   }
 });
+
+// get saved score
+var score = scoreStore.get();
+if (!score) {
+  score = 0;
+  scoreStore.set(score);
+}
+// get saved round
+var round = roundStore.get();
+if (!round) {
+  round = 0;
+  roundStore.set(round);
+}
+
+// get saved name
+var username = userStore.get();
+if (!username) {
+  var msg = "Please enter your name: " +
+    "\n* Name must contain a letter" +
+    "\n* Length must be less than 20 character";
+  username = prompt(msg);
+  // Name cannot be null, empty, or does not contain a letter, and name is less than 20 char
+  while (!username || username == '' ||
+    !(/[a-zA-Z]/.test(username)) ||
+    username.length < 1 || username.length > 20) {
+    username = prompt(msg);
+    userStore.set(username);
+  }
+}
