@@ -29,7 +29,10 @@ if (!round) {
 // get saved name
 var username = userStore.get();
 if (!username) {
-  username = prompt("Please enter your name:");
+  username = prompt("Please enter your name: \n* Name must contain a letter\n* Length must be less than 20 character");
+  // Name cannot be null, empty, or does not contain a letter, and name is less than 20 char
+  while( !username || username =='' || !(/[a-zA-Z]/.test(username)) || username.length < 1 || username.length > 20) {
+  username = prompt("Please enter your name: \n* Name must contain a letter\n* Length must be less than 20 character");}
   userStore.set(username);
 }
 
