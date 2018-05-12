@@ -16,6 +16,7 @@ You will need the following things properly installed on your computer.
 ## Installation/Configuration Documentation
 
 **Clone** or **download** the repo
+* `cd into folder`
 * `npm install`
 * `bower install`
 
@@ -40,13 +41,13 @@ Click on **Play** in navigation bar to play the game.
 
 2. Each round will be 1 minute long <br />
 
-3. Enter your guess of what tag is associated with the gif <br />
+3. Enter your guess of what hashtag is associated with the gif <br />
 
 4. Your correct and incorrect guesses will be displayed on the sidebars <br />
 
 5. Score will be updated for each correct guess <br />
 
-6. At the end of the 3rd round, you will get to see the scoreboard <br />
+6. At the end of the 3rd round, you will get to see how you ranked on the scoreboard <br />
 
 ### Scoreboard
 
