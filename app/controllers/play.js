@@ -13,8 +13,8 @@ import {
 let roundStore = new UserStore('x-hashmeme/r');
 let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
-let MAX_ROUNDS = 2;
-let GAME_TIME_MS = 10000;
+let MAX_ROUNDS = 3;
+let GAME_TIME_MS = 59800;
 
 let correctGuess = [];
 let incorrectGuess = [];
