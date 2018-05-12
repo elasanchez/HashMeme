@@ -13,8 +13,8 @@ import {
 let roundStore = new UserStore('x-hashmeme/r');
 let scoreStore = new UserStore('x-hashmeme/s');
 let userStore = new UserStore('x-hashmeme/u');
-let MAX_ROUNDS = 3;
-let GAME_TIME_MS = 60000;
+let MAX_ROUNDS = 2;
+let GAME_TIME_MS = 10000;
 
 let correctGuess = [];
 let incorrectGuess = [];
@@ -49,6 +49,7 @@ export default Controller.extend({
             //clear session storage
             scoreStore.set(0);
             roundStore.set(0);
+            window.location.reload();
           });
           //switch to scoreboard
           this.transitionToRoute('scoreboard');
@@ -68,7 +69,7 @@ export default Controller.extend({
 
       /**Correct**/
       console.log("this is guess: ", this.get('guess'));
-      if (list.includes(this.get('guess')) == true) {
+      if (list.includes(this.get('guess').toLowerCase()) == true) {
         correctGuess.addObject(this.get('guess'));
         // console.log("CORRECT", this.get('correctGuess'));
         score = parseInt(score) + 1;
@@ -98,7 +99,7 @@ export default Controller.extend({
                 //clear session storage
                 scoreStore.set(0);
                 roundStore.set(0);
-                // window.location.reload();
+                window.location.reload();
               });
               //switch to scoreboard
               this.transitionToRoute('scoreboard');
@@ -147,6 +148,6 @@ if (!username) {
     !(/[a-zA-Z]/.test(username)) ||
     username.length < 1 || username.length > 20) {
     username = prompt(msg);
-    userStore.set(username);
   }
+  userStore.set(username);
 }
