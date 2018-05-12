@@ -68,7 +68,7 @@ export default Controller.extend({
       var list = this.get('model')[0].tagList;
 
       /**Correct**/
-      console.log("this is guess: ", this.get('guess'));
+      // console.log("this is guess: ", this.get('guess'));
       if (list.includes(this.get('guess').toLowerCase()) == true) {
         correctGuess.addObject(this.get('guess'));
         // console.log("CORRECT", this.get('correctGuess'));
@@ -89,7 +89,6 @@ export default Controller.extend({
             roundStore.set(round);
 
             if (round == MAX_ROUNDS) {
-              // score = score.toString();
               // save score and name to database
               var newUser = this.store.createRecord('user', {
                 username: username,

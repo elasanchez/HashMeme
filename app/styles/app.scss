@@ -51,8 +51,6 @@ html, body{
   }
 
   .col-sm-8.text-left {
-    // background-color: #F08080;
-
     .time {
       display: flex;
       justify-content: center;
@@ -172,13 +170,5 @@ table {
   padding-top: 10px;
   p {
     font-size: 24px;
-  }
-}
-
-.play-btn {
-  display: flex;
-  justify-content: center;
-  .btn {
-    padding: 6px 38px;
   }
 }
