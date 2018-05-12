@@ -1,7 +1,8 @@
-# hash-meme
+# TagMe
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+**Project 2 - CPSC 473 Front-End Development course** <br />
+A web game where players can guess the hashtags associated with each gif. <br />
+Developed by Yashdeep Kajal, Luigi Sanchez, Justine Tran, Leigh Salvador, Grace Derderian.
 
 ## Prerequisites
 
@@ -12,10 +13,9 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
-## Installation
+## Installation/Configuration Documentation
 
-* `git clone <repository-url>` this repository
-* `cd hash-meme`
+**Clone** or **download** the repo
 * `npm install`
 * `bower install`
 
@@ -25,33 +25,35 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
+## User Documentation
 
-Make use of the many generators for code, try `ember help generate` for more details
+### Tutorial
 
-### Running Tests
+Click on **Tutorial** in navigation bar to get instructions on how to play the game.
 
-* `ember test`
-* `ember test --server`
+### How to play
 
-### Linting
+Click on **Play** in navigation bar to play the game.
 
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+### Rules
+1. There will be 3 rounds total <br />
 
-### Building
+2. Each round will be 1 minute long <br />
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+3. Enter your guess of what tag is associated with the gif <br />
 
-### Deploying
+4. Your correct and incorrect guesses will be displayed on the sidebars <br />
 
-Specify what it takes to deploy your app.
+5. Score will be updated for each correct guess <br />
 
-## Further Reading / Useful Links
+6. At the end of the 3rd round, you will get to see the scoreboard <br />
 
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+### Scoreboard
+
+Click on **Scoreboard** in navigation bar to view scores of all the players ranked highest to lowest.
+
+### Review
+
+Click on **Review Us** in navigation bar to leave a review of the game. <br />
+
+Reviews will be displayed on **Reviews** section in navigation bar.
