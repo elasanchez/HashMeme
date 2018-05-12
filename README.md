@@ -41,7 +41,7 @@ Click on **Play** in navigation bar to play the game.
 
 2. Each round will be 1 minute long <br />
 
-3. Enter your guess of what hashtag is associated with the gif <br />
+3. Enter your guess of what hashtags are associated with the gif <br />
 
 4. Your correct and incorrect guesses will be displayed on the sidebars <br />
 
