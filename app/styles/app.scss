@@ -160,14 +160,18 @@ table {
   padding-top: 10px;
   p {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
+  }
+  li {
+    font-size:20px;
+    padding-bottom: 10px;
   }
 }
 
 .ready-msg {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 40px;
   p {
     font-size: 24px;
   }
